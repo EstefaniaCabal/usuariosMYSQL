@@ -1,0 +1,79 @@
+<%- include("templates/encabezado")%>
+<%- include("templates/menu")%>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    span {
+        display: block;
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<h1>Modificar usuario</h1>
+
+<form action="/modificarUsuario" method="post" id="formulario">
+    <div>
+        <input type="hidden" name="id" id="id" value="<%= usuario.id %>">
+        <input type="text" name="nombre" id="nombre" placeholder="nombre" value=<%=usuario.nombre%> autofocus>
+        <span id="mensajeNombre"></span>
+    </div>
+
+    <div>
+        <input type="text" name="usuario" id="usuario" placeholder="usuario" value=<%=usuario.usuario%>>
+        <span id="mensajeUsuario"></span>
+    </div>
+
+    <div>
+        <input type="text" name="password" id="password" placeholder="password" value=<%=usuario.password%>>
+        <span id="mensajePassword"></span>
+    </div>
+    <div>
+        <button type="submit">Guardar usuario</button>
+    </div>
+</form>
+
+<%- include("templates/pie")%>
